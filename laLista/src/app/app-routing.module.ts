@@ -18,7 +18,23 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then(m => m.LoginPageModule)
-  },  
+  },   {
+    path: 'mapa',
+    loadChildren: () => import('./mapa/mapa.module').then( m => m.MapaPageModule)
+  },
+  {
+    path: 'camara',
+    loadChildren: () => import('./camara/camara.module').then( m => m.CamaraPageModule)
+  },
+  {
+    path: 'lista-productos',
+    loadChildren: () => import('./lista-productos/lista-productos.module').then( m => m.ListaProductosPageModule)
+  },
+  {
+    path: 'add-productos',
+    loadChildren: () => import('./add-productos/add-productos.module').then( m => m.AddProductosPageModule)
+  },
+ 
 ];
 
 @NgModule({

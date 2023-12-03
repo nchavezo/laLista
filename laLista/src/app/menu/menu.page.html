@@ -1,17 +1,41 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-img src="../../assets/imagenes/logo.png" alt="logo" style="width:100px;"></ion-img>
+    <ion-title>Menu</ion-title>
+    <ion-buttons slot="start">
+      <ion-img src="../../assets/imagenes/logo.png" alt="logo" style="width:100px;"></ion-img>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
-  <ion-list>
-      <ion-button expand="block" fill="outline">
+  <br><br>
+    <ion-item routerLink="/add-productos">
+      <ion-button  expand="block" fill="outline" style="width: 100%;">
+        <ion-img src="../../assets/imagenes/add-carro.png" alt="logo" style="width:64px;"></ion-img>
+        
+        &nbsp;&nbsp;Añadir Productos a la lista
+      </ion-button>
+    </ion-item>
+
+    <ion-item routerLink="/lista-productos">
+      <ion-button  expand="block" fill="outline" style="width: 100%;">
         <ion-img src="../../assets/imagenes/carro.png" alt="logo" style="width:64px;"></ion-img>
         
-        Añadir Productos a la lista de compras
+        &nbsp;&nbsp;Ver lista de compras
       </ion-button>
-    
-    <!-- Agrega más enlaces según sea necesario -->
-  </ion-list>
+    </ion-item>
+
+    <ion-item routerLink="/mapa">
+      <ion-button  expand="block" fill="outline" style="width: 100%;">
+        <ion-img src="../../assets/imagenes/mapa.png" alt="logo" style="width:64px;"></ion-img>
+        &nbsp;&nbsp;Ver en el mapa
+      </ion-button>
+    </ion-item>
+
+    <ion-item routerLink="/camara">
+      <ion-button  expand="block" fill="outline" style="width: 100%;">
+        <ion-img src="../../assets/imagenes/camara.png" alt="logo" style="width:64px;"></ion-img>
+        &nbsp;&nbsp;Camara
+      </ion-button>
+    </ion-item>
+
 </ion-content>

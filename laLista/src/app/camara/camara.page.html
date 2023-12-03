@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Camara</ion-title>
+    <ion-buttons slot="start">
+      <ion-img src="../../assets/imagenes/logo.png" alt="logo" style="width:100px;"></ion-img>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" *ngFor="let photo of camaraService.photos; let position = index">
+        <ion-img [src]="photo.webviewPath"></ion-img>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- 还可以添加其他元素或按钮来触发拍照操作 -->
+  <ion-content>
+    <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+      <ion-fab-button (click)="addPhotoToGallery()">
+        <ion-icon name="camera"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </ion-content>
+</ion-content>
