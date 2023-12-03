@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, AlertController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Productos } from '../add-productos/model/productos';
 import { ListaproductosService } from './listaproductos.service';
@@ -15,6 +15,7 @@ export class ListaProductosPage implements OnInit {
   // Injectamos Librerias
   constructor(public restApi: ListaproductosService
     , public loadingController: LoadingController
+    , public alertController: AlertController
     , public router: Router) { }
 
   // LLamamos al método que rescata los productos  
@@ -26,7 +27,7 @@ export class ListaProductosPage implements OnInit {
     console.log("Entrando :getProducts");
     // Crea un Wait (Esperar)
     const loading = await this.loadingController.create({
-      message: 'Harrys Loading...'
+      message: 'Cargando lista...'
     });
     // Muestra el Wait
     await loading.present();
@@ -50,4 +51,51 @@ export class ListaProductosPage implements OnInit {
       })
   }
 
+
+  async delete(id: string) {
+    // Confirma Primero
+    this.presentAlertConfirm(id, 'Esta eliminando un producto de la lista');
+
+  }
+  async presentAlertConfirm(id: string, msg: string) {
+    const alert = await this.alertController.create({
+      header: 'Warning!', // Título
+      message: msg,   // Mensaje
+      buttons: [   // Botones
+        {
+          text: 'Confirmar Eliminacion',
+          handler: () => { // Si presiona ejecuta esto
+            //this.router.navigate(['']);
+            this.deleteConfirmado(id)
+          }
+        }
+      ]
+    });
+    // Presenta en pantalla
+    await alert.present();
+  }
+
+  // Es invocado desde el Alert
+  async deleteConfirmado(id: string) {
+    const loading = await this.loadingController.create({
+      message: 'Cargando Lista...'
+    });
+    await loading.present();
+    await this.restApi.deleteProduct(id)
+      .subscribe({
+        next: (res) => {
+          console.log("Error DetailProduct Página", res);
+          loading.dismiss();
+          this.router.navigate(['/lista-productos']);
+          window.location.reload();
+
+        }
+        , complete: () => { }
+        , error: (err) => {
+          console.log("Error DetailProduct Página", err);
+          loading.dismiss();
+        }
+
+      })
+  }
 }

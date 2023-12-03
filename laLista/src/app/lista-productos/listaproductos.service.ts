@@ -31,9 +31,7 @@ export class ListaproductosService {
       );
   }
 
-  deleteProduct(id: number): Observable<Productos> {
-    //const url = '${apiUrl}/${id}';
-    //return this.http.delete<Producto>(url, httpOptions).pipe(
+  deleteProduct(id: string): Observable<Productos> {
     return this.http.delete<Productos>(apiUrl + "/" + id, httpOptions)
       .pipe(
         tap(_ => console.log('deleted product id=${id}')),

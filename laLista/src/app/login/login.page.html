@@ -1,12 +1,3 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-    <ion-buttons slot="start">
-      <!--<ion-img src="../../assets/imagenes/logo.png" alt="logo" style="width:100px;"></ion-img>-->
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true" style="align-content: center;">
   <ion-img src="../../assets/imagenes/logo.png" alt="logo" style="width:300px; center;"></ion-img>
 
@@ -27,7 +18,15 @@
         </ion-item>
       </div>
       <ion-button (click)="login()">Ingresar</ion-button>  
-      <a routerLink="/registro">Registrese</a>
+
+      <ion-item routerLink="/registro">
+        <ion-button  expand="block" fill="outline" style="width: 100%;">
+          
+          Registrese
+        </ion-button>
+      </ion-item>      
+
+
     </div>
       </div>
   

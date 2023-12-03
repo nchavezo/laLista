@@ -3,6 +3,9 @@
     <ion-title>Lista de compras</ion-title>
     <ion-buttons slot="start">
       <ion-img src="../../assets/imagenes/logo.png" alt="logo" style="width:100px;"></ion-img>
+      <ion-buttons slot="end">
+        <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -25,10 +28,16 @@
     <ion-item *ngFor="let p of productos">
       <ion-label>{{p.nombre}}</ion-label>
       <ion-label>{{p.cantidad}}</ion-label>
+       
+        <ion-button type="button" (click)="delete(p.id)"><ion-icon name="trash-outline"></ion-icon></ion-button>
 
-      <ion-button [routerLink]="['/product-edit/',p.id]"><ion-icon name="create-outline"></ion-icon></ion-button><br />
-      <ion-button [routerLink]="['/product-edit/',p.id]"><ion-icon name="trash-outline"></ion-icon></ion-button><br />
     </ion-item>
   </ion-list>
+
+  <ion-item routerLink="/menu">
+    <ion-button  expand="block" fill="outline" style="width: 100%;">     
+      Volver al Menu
+    </ion-button>
+  </ion-item>
 
 </ion-content>

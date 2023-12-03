@@ -1,8 +1,11 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Camara</ion-title>
+    <ion-title>Mapa</ion-title>
     <ion-buttons slot="start">
       <ion-img src="../../assets/imagenes/logo.png" alt="logo" style="width:100px;"></ion-img>
+      <ion-buttons slot="end">
+        <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -13,6 +16,17 @@
     <div #mapaElement id="map" style="width: 100%; height: 400px;"></div>
     <p>Latitude: {{ currentLatitude }}</p>
     <p>Longitude: {{ currentLongitude }}</p>
+
+    <ion-item routerLink="/menu">
+      <ion-button  expand="block" fill="outline" style="width: 100%;">     
+        Volver al Menu
+      </ion-button>
+    </ion-item>
+
   </ion-content>
+
   
+
+
 </ion-content>
+

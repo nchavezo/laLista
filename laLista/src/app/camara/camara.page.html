@@ -3,6 +3,9 @@
     <ion-title>Camara</ion-title>
     <ion-buttons slot="start">
       <ion-img src="../../assets/imagenes/logo.png" alt="logo" style="width:100px;"></ion-img>
+      <ion-buttons slot="end">
+        <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -17,12 +20,16 @@
     </ion-row>
   </ion-grid>
 
-  <!-- 还可以添加其他元素或按钮来触发拍照操作 -->
-  <ion-content>
+
     <ion-fab vertical="bottom" horizontal="center" slot="fixed">
       <ion-fab-button (click)="addPhotoToGallery()">
         <ion-icon name="camera"></ion-icon>
       </ion-fab-button>
     </ion-fab>
-  </ion-content>
+    
+    <ion-item routerLink="/menu">
+      <ion-button  expand="block" fill="outline" style="width: 100%;">     
+        Volver al Menu
+      </ion-button>
+    </ion-item>
 </ion-content>

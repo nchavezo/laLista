@@ -19,9 +19,8 @@ export class AddProductosPage {
 
   goBack() {
     this.router.navigate(['/lista-productos']);
+
   }
-
-
 
   regitroProducto() {
       const producto: Productos = new Productos(this.nuevoProducto);
@@ -32,9 +31,7 @@ export class AddProductosPage {
     this.productosService.regitroProducto(producto).subscribe((response) => {
       if (response) {
         console.log('Producto añadido correctamente', response);
-        this.router.navigateByUrl('/lista-productos'); 
-        window.location.reload();
-
+        this.goBack();
       }
     });
     
