@@ -1,0 +1,36 @@
+<!-- register.page.html -->
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Username</ion-label>
+    <ion-input [(ngModel)]="newUser.username" name="username" type="text" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Password</ion-label>
+    <ion-input [(ngModel)]="newUser.password" name="password" type="password" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Confirm Password</ion-label>
+    <ion-input [(ngModel)]="confirmPassword" name="confirmPassword" type="password" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Email</ion-label>
+    <ion-input [(ngModel)]="newUser.email" name="email" type="email" required></ion-input>
+  </ion-item>
+
+
+  <ion-button expand="full" (click)="registerUser()">Register</ion-button>
+</ion-content>

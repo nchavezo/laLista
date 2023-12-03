@@ -29,7 +29,7 @@ export class LoginPage {
 
       this.showLoginSuccessAlert();
       localStorage.setItem('loggedInUsername', this.username);
-      this.router.navigateByUrl('/tabs'); 
+      this.router.navigateByUrl('/menu'); 
     } else {
       this.showLoginErrorAlert();
     }
@@ -38,8 +38,8 @@ export class LoginPage {
 
 async showLoginSuccessAlert() {
   const alert = await this.alertController.create({
-    header: 'Login Success',
-    message: 'You have successfully logged in!',
+    header: 'Login Correcto',
+    message: 'Login Correcto, usted ha accedido!',
     buttons: ['OK']
   });
   await alert.present();
@@ -47,8 +47,8 @@ async showLoginSuccessAlert() {
 
 async showLoginErrorAlert() {
   const alert = await this.alertController.create({
-    header: 'Login Error',
-    message: 'Invalid username or password.',
+    header: 'Login Incorrecto',
+    message: 'Error en el acceso al sistema, intente nuevamente.',
     buttons: ['OK']
   });
   await alert.present();
