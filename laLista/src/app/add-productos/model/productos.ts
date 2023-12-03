@@ -7,7 +7,7 @@ export class Productos {
     // Puedes agregar un constructor si deseas inicializar propiedades
     constructor(obj: any) {
         this.id = obj && obj.id;
-        this.nombre = obj && obj.username || '';
+        this.nombre = obj && obj.nombre || '';
         this.cantidad = obj && obj.cantidad || '';
     }
   }

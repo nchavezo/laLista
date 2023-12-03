@@ -7,10 +7,18 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">add_productos</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Nombre</ion-label>
+    <ion-input [(ngModel)]="nuevoProducto.nombre" name="nombreProducto" type="text" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Cantidad</ion-label>
+    <ion-input [(ngModel)]="nuevoProducto.cantidad" name="cantidadProducto" type="text" required></ion-input>
+  </ion-item>
+
+
+  <ion-button expand="full" (click)="regitroProducto()">Register</ion-button>
 </ion-content>
